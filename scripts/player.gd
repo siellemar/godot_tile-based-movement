@@ -1,6 +1,6 @@
 extends Area2D
 
-print("hello")
+print("hi")
 
 @onready var phys_cast: RayCast2D = $CollisionCast
 @onready var int_cast: RayCast2D = $InteractableCast
@@ -16,7 +16,7 @@ var inputs = {
 
 var moving = false
 var anim_speed = 7.8
-var interacting = false
+var intera cting = false
 
 func _ready(): # Make sure player starts in a tile position
 	position = position.snapped(Vector2.ONE * TILE_SIZE)
