@@ -44,7 +44,7 @@ func _physics_process(delta: float):
 			pass
 		else:
 			interacting = true
-			print("huge interactable found")
+			print("interactable found")
 
 #func _unhandled_input(event: InputEvent):
 	#if moving:
