@@ -46,12 +46,6 @@ func _physics_process(delta: float):
 			interacting = true
 			print("interactable found")
 
-#func _unhandled_input(event: InputEvent):
-	#if moving:
-		#return
-	#for dir in inputs.keys():
-		#if event.is_action_pressed(dir):
-			#move(dir)
 
 func move(dir):
 	if moving:
