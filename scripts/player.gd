@@ -1,5 +1,7 @@
 extends Area2D
 
+print("hello")
+
 @onready var phys_cast: RayCast2D = $CollisionCast
 @onready var int_cast: RayCast2D = $InteractableCast
 @onready var label: Label = self.get_node("Label")
