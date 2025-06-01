@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=4 uid="uid://6oupadbwe4k5"]
+
+[ext_resource type="Texture2D" uid="uid://m75fkycbfwsf" path="res://sprites/SolidInteractable x16 tile sprite 1.png" id="1_iywne"]
+[ext_resource type="Texture2D" uid="uid://c14xcg875m1ak" path="res://sprites/Solids.png" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://dak2thnw7omck" path="res://sprites/Grounds.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://doihom6ua2asu" path="res://scenes/player.tscn" id="3_lnu2h"]
+[ext_resource type="FontFile" uid="uid://csa7mo45nmbw0" path="res://fonts/PixelOperator8.ttf" id="4_lbhrr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
+texture = ExtResource("1_iywne")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_u5sy4"]
+physics_layer_0/collision_layer = 40
+physics_layer_0/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_p57ef")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
+texture = ExtResource("1_uwrxv")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_lnu2h"]
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 16
+sources/0 = SubResource("TileSetAtlasSource_yqjtg")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+texture = ExtResource("2_yqjtg")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lbhrr"]
+sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+
+[node name="Game" type="Node2D"]
+
+[node name="InteractableSolid" type="TileMapLayer" parent="."]
+z_index = 1
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_u5sy4")
+
+[node name="Solids" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAP//AAAAAAAAAAAFAP7/AAAAAAAAAAAFAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAADAP3/AAAAAAAAAAACAP3/AAAAAAAAAAABAP3/AAAAAAAAAAAAAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD9//3/AAAAAAAAAAABAAIAAAAAAAEAAAACAAIAAAAAAAEAAAACAAEAAAAAAAEAAAADAAEAAAAAAAEAAAADAAAAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAADAAIAAAAAAAEAAAAAAAIAAAAAAAEAAAD//wIAAAAAAAEAAAABAAEAAAAAAAEAAAD9////AAAAAAEAAAD9//7/AAAAAAEAAAD+//7/AAAAAAEAAAD///7/AAAAAAEAAAD+////AAAAAAEAAAACAP7/AAAAAAEAAAADAP7/AAAAAAEAAAAEAP7/AAAAAAEAAAA=")
+tile_set = SubResource("TileSet_lnu2h")
+
+[node name="Ground" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_lbhrr")
+
+[node name="Player" parent="." instance=ExtResource("3_lnu2h")]
+
+[node name="Label" type="Label" parent="Player"]
+texture_filter = 1
+offset_left = -8.0
+offset_top = -12.0
+offset_right = 8.0
+offset_bottom = 11.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 16
+text = "●"
+horizontal_alignment = 1
+vertical_alignment = 1
